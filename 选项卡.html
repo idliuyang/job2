@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	#div1 div{ width:200px; height:200px; background:#ccc; display:none;}
+	#div1 .cur{ background:red;}
+	#div1 .show{ display:block;}
+</style>
+<script>
+	window.onload=function(){ 
+		var oDiv=document.getElementById('div1');
+		var aDiv=oDiv.getElementsByTagName('div');
+		var aBtn=oDiv.getElementsByTagName('input');
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].index=i;
+			aBtn[i].onclick=function(){
+				for(var i=0;i<aBtn.length;i++){
+					aBtn[i].className='';
+					aDiv[i].className='';
+				}
+				this.className='cur';
+				aDiv[this.index].className='show';	
+			};	
+		}	
+	};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input type="button" value="小说 " class="cur">
+	<input type="button" value="音乐">
+	<input type="button" value="电影">
+    <div class="show">诛仙</div>
+    <div>南山南</div>
+    <div>囧途</div>
+</div>
+</body>
+</html>
